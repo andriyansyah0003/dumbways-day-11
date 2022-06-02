@@ -1,0 +1,203 @@
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Personal Web - Add Project</title>
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-0evHe/X+R7YkIZDRvuzKMRqM+OrBnVFBL6DOitfPri4tjfHxaWutUpFmBp4vmVor"
+      crossorigin="anonymous"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.5.0/font/bootstrap-icons.css"
+    />
+    <link rel="stylesheet" href="/public/css/style.css" />
+  </head>
+  <body>
+    <nav class="navbar navbar-expand-lg bg-custom">
+      <div class="container">
+        <a class="navbar-brand" href="/"><img
+            src="/public/img/brand.png"
+            alt="logo"
+            width="50px"
+            height="35px"
+          /></a>
+        <button
+          class="navbar-toggler"
+          type="button"
+          data-bs-toggle="collapse"
+          data-bs-target="#navbarSupportedContent"
+          aria-controls="navbarSupportedContent"
+          aria-expanded="false"
+          aria-label="Toggle navigation"
+        >
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+          <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+            <li class="nav-item ms-lg-3">
+              <a
+                class="nav-link text-dark"
+                aria-current="page"
+                href="/"
+              >Home</a>
+            </li>
+            <li class="nav-item ms-lg-3">
+              <a class="nav-link active fw-bold" href="add-project">Add Project</a>
+            </li>
+          </ul>
+
+          <div class="d-flex align-items-center">
+            {{#if isLogin}}
+              <a
+                class="text-decoration-none text-dark me-3"
+                href="/logout"
+              >Logout</a>
+            {{else}}
+              <a
+                class="text-decoration-none text-dark me-3"
+                href="/login"
+              >Login</a>
+              <a
+                class="text-decoration-none text-dark me-3"
+                href="/register"
+              >Register</a>
+
+            {{/if}}
+
+            <a class="btn btn-dark" href="/contact">Contact Me</a>
+          </div>
+        </div>
+      </div>
+    </nav>
+    <main>
+      <section class="container add-project">
+        <h3 class="text-center text-uppercase my-3">Add Project</h3>
+        <div class="row">
+          <div class="col-lg-6 mx-auto">
+            <form action="/add-project" method="post">
+              <div class="form-group">
+                <label class="my-lg-2" for="name">Project Name</label>
+                <input
+                  type="text"
+                  class="form-control"
+                  id="name"
+                  name="name"
+                  placeholder="Enter your project"
+                  required
+                />
+              </div>
+              <div class="row">
+                <div class="col">
+                  <label class="my-lg-2" for="startDate">Start Date</label>
+                  <input
+                    type="date"
+                    id="startDate"
+                    name="startDate"
+                    class="form-control"
+                  />
+                </div>
+                <div class="col">
+                  <label class="my-lg-2" for="endDate">End Date</label>
+                  <input
+                    type="date"
+                    id="endDate"
+                    name="endDate"
+                    class="form-control"
+                  />
+                </div>
+              </div>
+              <div class="form-group">
+                <label class="my-lg-2" for="description">Description</label>
+                <textarea
+                  class="form-control"
+                  id="description"
+                  name="description"
+                  rows="5"
+                  placeholder="Enter your description"
+                  required
+                ></textarea>
+              </div>
+              <div class="form-group">
+                <label class="my-lg-2" for="technologies">Technologies</label>
+                <div class="row">
+                  <div class="col">
+                    <div class="form-check mb-lg-2">
+                      <input
+                        class="form-check-input"
+                        type="checkbox"
+                        id="nodeJs"
+                        name="nodeJs"
+                      />
+                      <label class="form-check-label" for="nodeJs">
+                        Node JS
+                      </label>
+                    </div>
+                    <div class="form-check">
+                      <input
+                        class="form-check-input"
+                        type="checkbox"
+                        id="reactJs"
+                        name="reactJs"
+                      />
+                      <label class="form-check-label" for="reactJs">
+                        React JS
+                      </label>
+                    </div>
+                  </div>
+                  <div class="col">
+                    <div class="form-check mb-lg-2">
+                      <input
+                        class="form-check-input"
+                        type="checkbox"
+                        id="nextJs"
+                        name="nextJs"
+                      />
+                      <label class="form-check-label" for="nextJs">
+                        Next JS
+                      </label>
+                    </div>
+                    <div class="form-check">
+                      <input
+                        class="form-check-input"
+                        type="checkbox"
+                        id="typeScript"
+                        name="typeScript"
+                      />
+                      <label class="form-check-label" for="typeScript">
+                        TypeScript
+                      </label>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="form-group">
+                <div class="mb-3">
+                  <label for="image" class="form-label my-lg-2">Upload Image</label>
+                  <input
+                    class="form-control"
+                    type="file"
+                    id="image"
+                    name="image"
+                  />
+                </div>
+              </div>
+              <button type="submit" class="btn btn-primary float-end my-3">
+                Submit
+              </button>
+            </form>
+          </div>
+        </div>
+      </section>
+    </main>
+    <script src="/public/js/main.js"></script>
+    <script
+      src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/js/bootstrap.bundle.min.js"
+      integrity="sha384-pprn3073KE6tl6bjs2QrFaJGz5/SUsLqktiwsUTF55Jfv3qYSDhgCecCxMW52nD2"
+      crossorigin="anonymous"
+    ></script>
+  </body>
+</html>
